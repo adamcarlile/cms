@@ -1,7 +1,28 @@
+<% content_for :head do %>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("div#player ul").tabs("div#player div.panes > div", { effect: 'fade' } );
+	
+	$('div.movie').flash({
+		swf: '/flash/assets/swfplayer/player.swf',
+		height: 353,
+		width: 629,
+		wmode: 'transparent',
+		flashvars: {
+			file: '/flash/assets/snowsports_promo_09.flv',
+			controlbar: 'over',
+			image: '/flash/assets/snowsports_promo_09.jpg'
+			}
+	});
+	
+});
+</script>
+<% end %>
 <%= render :partial => 'layouts/shared/header' %>
 <div class="wrapper">
   	<%= render_breadcrumb %>
   	<%= render_flash %>
+	<%= render :partial => 'public/shared/player' %>
 	<ul id="promos">
   	<% @promos.each do |promo| %>
 		<li class="<%= cycle('blue','yellow','pink') %>">

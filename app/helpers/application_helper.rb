@@ -93,7 +93,15 @@ module ApplicationHelper
   end
 
   def jquery
-    %(<script src="/javascripts/jquery.js" type="text/javascript"></script>)
+    %(<script src="/javascripts/jquery-1.3.2.min.js" type="text/javascript"></script>)
+  end
+  
+  def jflash
+    %(<script src="/javascripts/jquery.swfobject.js" type="text/javascript"></script>)
+  end
+  
+  def jtools
+    %(<script src="/javascripts/jquery.tools.js" type="text/javascript"></script>)
   end
 
   def jmaps

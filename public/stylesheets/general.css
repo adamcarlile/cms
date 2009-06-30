@@ -172,3 +172,98 @@ span.white
 {
 	color:#ffffff !important;
 }
+
+div#player
+{
+	margin-top:20px;
+	overflow:hidden;
+}
+
+div#player div.panes
+{
+	width:629px;
+	height:353px;
+	float:left;
+}
+
+div#player ul
+{
+	float:left;
+	width:311px;
+}
+
+div#player ul li
+{
+	display:block;
+	height: 70px;
+	background-image:url('../skin/blue_grad.png');
+	background-position:bottom;
+	background-repeat:repeat-x;
+	background-color:#48c7eb;
+	cursor:pointer;
+	border-top:1px solid #78e1ff;
+	border-bottom:1px solid #417280;
+	position:relative;
+}
+
+div#player ul li h4
+{
+	padding-left:15px;
+	padding-top:15px;
+	font-size:2em;
+	letter-spacing:-1px;
+	padding-bottom:5px;
+}
+
+div#player ul li p
+{
+	padding-left:15px;
+	font-size:1.1em;
+}
+
+div#player ul li:hover
+{
+	background-image:url('../skin/blue_grad_dark.png');
+	background-color:#247b94;
+}
+
+div#player ul li.current
+{
+	background-image:url('../skin/pink_grad.png');
+	background-color:#ec2492;
+	border-bottom-color:#78385b;
+	border-top-color:#ff95cf;
+}
+
+div#player ul li.current span.arrow
+{
+	height:70px;
+	width:30px;
+	position:absolute;
+	top:0px;
+	left:-30px;
+	background-image:url('../skin/pink_arrow.png');
+}
+
+div#player div.panes
+{
+	background-color:#000000;
+}
+
+div#player div.panes div
+{
+	position:relative;
+}
+
+div#player div.panes div span
+{
+	width:500px;
+	background-image:url('../skin/black_bg.png');
+	color:#ffffff;
+	position:absolute;
+	left:0px;
+	bottom:20px;
+	padding:20px;
+	font-size:1.2em;
+	line-height:1.6em;
+}
