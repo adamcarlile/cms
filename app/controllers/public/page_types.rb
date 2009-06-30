@@ -2,12 +2,15 @@
 # Actions for each page behaviour behaviour
 #
 module Public::PageTypes
-
+  
   def redirect
     redirect_to @page.url
   end
   
-  
+  def homepage
+    @promos = Promo.all
+    render(:template => 'public/page_types/homepage', :layout => 'layouts/homepage') and @rendered = true
+  end
   
   def news_index
     @news = @page.children.published.paginate(:page => params[:page], :order => 'publish_date DESC')

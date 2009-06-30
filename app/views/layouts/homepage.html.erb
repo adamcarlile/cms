@@ -1,0 +1,14 @@
+<%= render :partial => 'layouts/shared/header' %>
+<div class="wrapper">
+  	<%= render_breadcrumb %>
+  	<%= render_flash %>
+	<ul id="promos">
+  	<% @promos.each do |promo| %>
+		<li class="<%= cycle('blue','yellow','pink') %>">
+			<h4><%= link_to s(promo.title), (if promo.page : view_page_path(promo.page.slug_path) else '#' end)  %></h4>
+			<%= link_to (image_tag promo.image.url(:medium)), (if promo.page : view_page_path(promo.page.slug_path) else '#' end) %>
+		</li>
+	<% end %>
+	</ul>
+</div>
+<%= render :partial => 'layouts/shared/footer' %>

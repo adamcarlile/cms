@@ -16,6 +16,10 @@ module ApplicationHelper
     url << relative_path
   end
   
+  #slashify the string
+  def s(string)
+    string.gsub(/\ /,'<span class="white">/</span>')
+  end
   
   def uploaded_image(object, method, suffix=nil, options = {}, alternate_src = nil)
     return '' if object.nil?
