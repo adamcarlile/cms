@@ -13,7 +13,7 @@ test:
 
 production:
   adapter: mysql
-  database: cms
+  database: lmusnow_production
   username: root
-  password: 
-  host: localhost
+  password: njh9x2
+  socket: /var/run/mysqld/mysqld.sock
