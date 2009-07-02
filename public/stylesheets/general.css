@@ -289,7 +289,7 @@ div#twitter
 	width:300px;
 	position:absolute;
 	right:0px;
-	top:0px;
+	bottom:60px;
 }
 
 div#twitter div.inner
