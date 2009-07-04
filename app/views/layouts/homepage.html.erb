@@ -1,8 +1,32 @@
 <% content_for :head do %>
 <script type="text/javascript">
 $(document).ready(function() {
-	$("div#player ul").tabs("div#player div.panes > div", { effect: 'fade' } );
 	
+	$(function() { 
+	    var rotateDelay = 3000; //milliseconds 
+	    var rotateTabs=true;     
+	    var $tabItems = $('div#player ul li').click(function(){ //clicking a tab should cancel the rotate 
+	        rotateTabs=false; 
+	    }); 
+	    var tabs = $("div#player ul").tabs('div#player div.panes > div', {api:true, effect: 'fade'}); //create the tabs and return the api 
+	    function doRotateTabs(){ //recursive function 
+	        if (rotateTabs) { 
+	            setTimeout(function(){ 
+	                if (!rotateTabs) return; 
+	                if(tabs.getIndex() == $tabItems.length-1){ //last tab. restart on first tab 
+	                    tabs.click(0); 
+	                } 
+	                else { 
+	                    tabs.next(); 
+	                } 
+	                doRotateTabs(); 
+	            }, rotateDelay); 
+	        } 
+	    } 
+	    doRotateTabs(); 
+	});
+	
+		
 	$('div.movie').flash({
 		swf: '/flash/assets/swfplayer/player.swf',
 		height: 353,
@@ -15,14 +39,17 @@ $(document).ready(function() {
 			}
 	});
 	
+	
+	
 	$('ul#promos li p').css('right', '-250px');
 	
 	var onMouseOver = function() { 
-		$(this).find('p').animate({right: '0px'}, 200)
+		$(this).stop();
+		$(this).find('p').stop().animate({right: '0px'}, 200)
 	};
 	
 	var onMouseOut = function() { 
-		$(this).find('p').animate({right: '-250px'}, 200)
+		$(this).find('p').stop().animate({right: '-250px'}, 200)
 	};
 	
 	$('ul#promos li').hover(onMouseOver, onMouseOut);
