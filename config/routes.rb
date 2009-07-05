@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
       :add_file_upload => :post, :delete_file_upload => :post, 
       :add_image => :post, :delete_image => :post, :reorder_images => :post
       }
+    admin.resources :promos, :collection => {:reorder => :get, :reorder_form => :post}
     admin.resources :images, :member => {:crop_settings => :get}
     admin.resources :file_uploads
     admin.resources :file_upload_categories

@@ -3,7 +3,6 @@ class Public::PagesController < Public::BaseController
   include Public::PageTypes
 
   def view
-    @twitter = Twitter.twitter_feed
     @rendered = false
     if params[:slug_path].is_a? Array
       slug_path = params[:slug_path].join('/')

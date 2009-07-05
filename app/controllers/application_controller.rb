@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
     
   
-  before_filter :set_charset
+  before_filter :set_charset, :twitter_feed
 
 	def render_not_found
 		render :file => RAILS_ROOT + "/public/404.html", :status => "404 Not Found"
@@ -34,6 +34,10 @@ class ApplicationController < ActionController::Base
   
   protected
   
+    def twitter_feed
+      @twitter = Twitter.twitter_feed
+    end
+    
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find

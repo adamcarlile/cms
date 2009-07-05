@@ -8,7 +8,8 @@ module Public::PageTypes
   end
   
   def homepage
-    @promos = Promo.all
+    @promos_bottom = Promo.bottom
+    @promos_top = Promo.top
     render(:template => 'public/page_types/homepage', :layout => 'layouts/homepage') and @rendered = true
   end
   

@@ -220,7 +220,7 @@ div#player ul
 div#player ul li
 {
 	display:block;
-	height: 70px;
+	height: 69px;
 	background-image:url('../skin/blue_grad.png');
 	background-position:bottom;
 	background-repeat:repeat-x;
@@ -259,6 +259,7 @@ div#player ul li.current
 	background-color:#ec2492;
 	border-bottom-color:#78385b;
 	border-top-color:#ff95cf;
+	height:67px;
 }
 
 div#player ul li.current span.arrow

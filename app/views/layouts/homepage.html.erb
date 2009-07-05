@@ -3,7 +3,7 @@
 $(document).ready(function() {
 	
 	$(function() { 
-	    var rotateDelay = 3000; //milliseconds 
+	    var rotateDelay = 4000; //milliseconds 
 	    var rotateTabs=true;     
 	    var $tabItems = $('div#player ul li').click(function(){ //clicking a tab should cancel the rotate 
 	        rotateTabs=false; 
@@ -64,7 +64,7 @@ $(document).ready(function() {
   	<%= render_flash %>
 	<%= render :partial => 'public/shared/player' %>
 	<ul id="promos">
-  	<% @promos.each do |promo| %>
+  	<% @promos_bottom.each do |promo| %>
 		<li class="<%= cycle('blue','yellow','pink') %>">
 			<h4><%= link_to s(promo.title), (if promo.page : view_page_path(promo.page.slug_path) else '#' end)  %></h4>
 			<p><%= promo.intro %></p>
