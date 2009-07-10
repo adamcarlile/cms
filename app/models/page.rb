@@ -18,6 +18,14 @@ class Page < ActiveRecord::Base
 
   attr_accessor :type_name
   
+  has_attached_file :image, 
+    :url =>                   "/upload/images/:id/:style_:basename.:extension",
+    :path => ":rails_root/public/upload/images/:id/:style_:basename.:extension",
+    :styles => {
+        :medium => "300>x160",
+        :thumbnail => "75x75#",
+        :large => "600>x600"
+    }
 
   #
   # Add a class method for various options that allows a simple macro type method to be used 
