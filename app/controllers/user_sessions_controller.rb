@@ -10,7 +10,7 @@ class UserSessionsController < Public::BaseController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Successfully logged in"
-      redirect_to admin_dashboard_path
+      redirect_back_or_default account_url
     else
       flash[:error] = "Login failed"
       render :action => 'new'

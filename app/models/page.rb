@@ -24,6 +24,7 @@ class Page < ActiveRecord::Base
     :styles => {
         :medium => "300>x160",
         :thumbnail => "75x75#",
+        :large_thumb => "150x150#",
         :large => "600>x600"
     }
 

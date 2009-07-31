@@ -31,7 +31,11 @@ class Public::PagesController < Public::BaseController
   
   def render_page_type(template = nil)
     template = @page.public_template if template.nil?
-    render :template => "public/page_types/#{template}"
+    if request.xhr?
+      render :template => "public/page_types/#{template}", :layout => false
+    else
+      render :template => "public/page_types/#{template}"
+    end
     @rendered = true
   end
   

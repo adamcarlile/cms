@@ -3,7 +3,12 @@
 class ApplicationController < ActionController::Base
   extend ActiveSupport::Memoizable
   #include ExceptionNotifiable
-
+  
+  before_filter :current_user
+  before_filter :set_facebook_session
+  helper_method :facebook_session
+  
+  helper_method :current_user_session, :current_user
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   filter_parameter_logging :password, :password_confirmation
     
@@ -27,10 +32,6 @@ class ApplicationController < ActionController::Base
 	def make_pager(count, per_page = 10, page_key = :page)
 		Paginator.new(self,count, per_page, params[page_key])
 	end
-
-
-  helper_method :current_user
-  
   
   protected
   
@@ -56,6 +57,15 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+    
+    def require_no_user
+      if current_user
+        store_location
+        flash[:notice] = "You must be logged out to access this page"
+        redirect_to account_url
+        return false
+      end
+    end
 
     def redirect_back_or_default(default)
       redirect_to(session[:return_to] || default)
@@ -66,6 +76,10 @@ class ApplicationController < ActionController::Base
       flash[:error] = "You're not authorized to view that page"
       redirect_to new_user_session_path
       return false
+    end
+    
+    def store_location
+      session[:return_to] = request.request_uri
     end
 
 

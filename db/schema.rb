@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090709220511) do
+ActiveRecord::Schema.define(:version => 20090730193945) do
 
   create_table "assets", :force => true do |t|
     t.string   "title"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20090709220511) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "subtitle"
   end
 
   create_table "promos", :force => true do |t|
@@ -147,6 +148,13 @@ ActiveRecord::Schema.define(:version => 20090709220511) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.string   "visible_username"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "facebook_uid",              :limit => 8
+    t.string   "name"
   end
 
 end
